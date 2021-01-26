@@ -23,4 +23,10 @@ class Course extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    public function similar()
+    {
+        return $this->where('category_id', $this->category_id)->take(2)->get();
+        //Busca el id de la categoria respecto al valor que tenga que dependera del curso que se este visualizando
+    }
 }
