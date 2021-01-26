@@ -58,4 +58,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function GetAvatarAttribute()
+    {
+        //Gravatar
+
+        $email = md5($this->email); //Convertimos la propiedad email del usuario a md5
+        return "https://s.gravatar.com/avatar/$email";
+    }
 }
