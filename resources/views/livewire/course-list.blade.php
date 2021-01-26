@@ -1,3 +1,5 @@
 <div>
-    {{-- The whole world belongs to you --}}
+    @foreach($courses as $course)
+        {{ $course->id }}
+    @endforeach
 </div>
