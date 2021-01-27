@@ -30,16 +30,7 @@
             </div>
             <div class="grid grid-cols-2 gap-4 my-8">
                 @foreach($course->similar() as $course)
-                    <div class="bg-white shadow-lg rounded-lg px-4 py-6">
-                        <a href="{{ route('course', $course->slug) }}">
-                            <img src="{{ $course->image }}" alt="{{ $course->slug }}" class="rounded-md mb-2">
-                            <h2 class="text-lg text-gray-600 truncate uppercase">{{ $course->name }}</h2>
-                            <p class="text-md text-gray-500">{{ $course->excerpt }}</p>
-                            <!--excerpt será un campo virtual ya que no existe en la tabla pero lo utilizaremos desde laravel-->
-
-                            <img src="{{ $course->user->avatar }}" alt="{{ $course->user->name }}" class="rounded-full mx-auto h16 w-16">
-                        </a>
-                    </div>
+                    <x-tarjeta-curso :course="$course"/>
                 @endforeach
             </div>
         </div>
@@ -48,5 +39,5 @@
         <h1 class="text-3xl text-gray-700 mb-2 uppercase">Últimos cursos</h1>
         <h2 class="text-xl text-gray-600">Fórmate online como profesional en teconología</h2>
     </div>
-<livewire:course-list></livewire:course-list>
+<livewire:course-list>
 @endsection
